@@ -7,9 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{52
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalog", "Catalog", "{CEF23A05-19C9-4567-9A06-59F676EEFEC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{5052B30D-A9C8-45A3-A28D-FD238395B391}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Catalog.API", "Services\Catalog\Catalog.API\Catalog.API.csproj", "{5052B30D-A9C8-45A3-A28D-FD238395B391}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{DC9DBE7B-35EB-479E-B560-EDD0687FE0D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{AEE8AADE-7FAD-4F85-A923-8375AFF3885A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.API", "Services\Ordering\Ordering.API\Ordering.API.csproj", "{649B1A46-6CBD-4F0E-B118-6936E6737A39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Application", "Services\Ordering\Ordering.Application\Ordering.Application.csproj", "{6BA67B8D-FC85-42FA-AA7C-D76B01C2FA0D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Domain", "Services\Ordering\Ordering.Domain\Ordering.Domain.csproj", "{3B9B6C3E-84AF-4913-B2B2-023837EBE041}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.Infrastructure", "Services\Ordering\Ordering.Infrastructure\Ordering.Infrastructure.csproj", "{194A2A7D-C475-4D43-B2D9-9DAA8FBD0A79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +35,22 @@ Global
 		{DC9DBE7B-35EB-479E-B560-EDD0687FE0D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC9DBE7B-35EB-479E-B560-EDD0687FE0D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC9DBE7B-35EB-479E-B560-EDD0687FE0D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{649B1A46-6CBD-4F0E-B118-6936E6737A39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{649B1A46-6CBD-4F0E-B118-6936E6737A39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{649B1A46-6CBD-4F0E-B118-6936E6737A39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{649B1A46-6CBD-4F0E-B118-6936E6737A39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BA67B8D-FC85-42FA-AA7C-D76B01C2FA0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BA67B8D-FC85-42FA-AA7C-D76B01C2FA0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BA67B8D-FC85-42FA-AA7C-D76B01C2FA0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BA67B8D-FC85-42FA-AA7C-D76B01C2FA0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B9B6C3E-84AF-4913-B2B2-023837EBE041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B9B6C3E-84AF-4913-B2B2-023837EBE041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B9B6C3E-84AF-4913-B2B2-023837EBE041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B9B6C3E-84AF-4913-B2B2-023837EBE041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{194A2A7D-C475-4D43-B2D9-9DAA8FBD0A79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{194A2A7D-C475-4D43-B2D9-9DAA8FBD0A79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{194A2A7D-C475-4D43-B2D9-9DAA8FBD0A79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{194A2A7D-C475-4D43-B2D9-9DAA8FBD0A79}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +58,11 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CEF23A05-19C9-4567-9A06-59F676EEFEC3} = {52D30442-D72D-458B-8381-AAE157896F5E}
 		{5052B30D-A9C8-45A3-A28D-FD238395B391} = {CEF23A05-19C9-4567-9A06-59F676EEFEC3}
+		{AEE8AADE-7FAD-4F85-A923-8375AFF3885A} = {52D30442-D72D-458B-8381-AAE157896F5E}
+		{649B1A46-6CBD-4F0E-B118-6936E6737A39} = {AEE8AADE-7FAD-4F85-A923-8375AFF3885A}
+		{6BA67B8D-FC85-42FA-AA7C-D76B01C2FA0D} = {AEE8AADE-7FAD-4F85-A923-8375AFF3885A}
+		{3B9B6C3E-84AF-4913-B2B2-023837EBE041} = {AEE8AADE-7FAD-4F85-A923-8375AFF3885A}
+		{194A2A7D-C475-4D43-B2D9-9DAA8FBD0A79} = {AEE8AADE-7FAD-4F85-A923-8375AFF3885A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C587330E-DDFA-4CE0-930B-830FD81D8FD5}

@@ -46,10 +46,12 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ConnectionStrings:OrderingConnectionString=Server=orderdb;Database=OrderDb;User Id=sa;Password=SwN12345678"
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:
-        - orderdb
+      - orderdb
+      - rabbitmq
     ports:
-        - "8001:80"
+      - "8001:80"
    
   basket.api:
     container_name: basket.api

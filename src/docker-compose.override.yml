@@ -65,3 +65,13 @@ services:
     ports:
       - "8002:80"
 
+
+  ocelotapigw:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - catalog.api
+      - basket.api
+      - ordering.api
+    ports:
+      - "8003:80"

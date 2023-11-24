@@ -28,7 +28,6 @@ namespace Ordering.API.Controllers
             return Ok(orders);
         }
 
-        // testing purpose
         [HttpPost(Name = "CheckoutOrder")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public async Task<ActionResult<int>> CheckoutOrder([FromBody] CheckoutOrderCommand command)

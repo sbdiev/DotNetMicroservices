@@ -19,7 +19,6 @@ namespace Ordering.Infrastructure.Repositories
             var orderList = await _dbContext.Orders
                                     .Where(o => o.UserName == userName)
                                     .ToListAsync();
-            
             return orderList;
         }
     }

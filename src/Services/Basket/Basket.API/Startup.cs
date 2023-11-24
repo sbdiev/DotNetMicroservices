@@ -1,11 +1,8 @@
-using EventBus.Messages.Common;
+using Basket.API.Repositories;
 using MassTransit;
 using Microsoft.OpenApi.Models;
-using Ordering.API.EventBusConsumer;
-using Ordering.Application;
-using Ordering.Infrastructure;
 
-namespace Ordering.API
+namespace Basket.API
 {
     public class Startup
     {
@@ -15,34 +12,28 @@ namespace Ordering.API
         }
 
         public IConfiguration Configuration { get; }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplicationServices();
-            services.AddInfrastructureServices(Configuration);
+            services.AddStackExchangeRedisCache(options =>
+            {
+               var d = options.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString");
+            });
+
+            services.AddScoped<IBasketRepository, BasketRepository>();
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddMassTransit(config => {
-
-                config.AddConsumer<BasketCheckoutConsumer>();
-
-                config.UsingRabbitMq((ctx, cfg) => {
+               config.UsingRabbitMq((ctx, cfg) => {
                     cfg.Host(Configuration["EventBusSettings:HostAddress"]);
-
-                    cfg.ReceiveEndpoint(EventBusConstants.BasketCheckoutQueue, c =>
-                    {
-                        c.ConfigureConsumer<BasketCheckoutConsumer>(ctx);
-                    });
                 });
             });
             services.AddMassTransitHostedService();
 
-            services.AddAutoMapper(typeof(Startup));
-            services.AddScoped<BasketCheckoutConsumer>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ordering.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket.API", Version = "v1" });
             });
         }
 
@@ -52,7 +43,7 @@ namespace Ordering.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ordering.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Basket.API v1"));
             }
 
             app.UseRouting();

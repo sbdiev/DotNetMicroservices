@@ -23,6 +23,11 @@ namespace Basket.API.Controllers
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
+        /// <summary>
+        /// Get a user's shopping basket by userName.
+        /// </summary>
+        /// <param name="userName">User's name.</param>
+        /// <returns>The user's shopping basket.</returns>
         [HttpGet("{userName}", Name = "GetBasket")]
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ShoppingCart>> GetBasket(string userName)
@@ -31,6 +36,11 @@ namespace Basket.API.Controllers
             return Ok(basket ?? new ShoppingCart(userName));
         }
 
+        /// <summary>
+        /// Update a user's shopping basket.
+        /// </summary>
+        /// <param name="basket">The updated shopping basket.</param>
+        /// <returns>The updated shopping basket.</returns>
         [HttpPost]
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<ShoppingCart>> UpdateBasket([FromBody] ShoppingCart basket)
@@ -38,14 +48,24 @@ namespace Basket.API.Controllers
             return Ok(await _repository.UpdateBasket(basket));
         }
 
+        /// <summary>
+        /// Delete a user's shopping basket by userName.
+        /// </summary>
+        /// <param name="userName">User's name.</param>
+        /// <returns>No content if successful.</returns>
         [HttpDelete("{userName}", Name = "DeleteBasket")]
-        [ProducesResponseType(typeof(void), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
         public async Task<IActionResult> DeleteBasket(string userName)
         {
             await _repository.DeleteBasket(userName);
-            return Ok();
+            return NoContent();
         }
 
+        /// <summary>
+        /// Checkout the user's shopping basket.
+        /// </summary>
+        /// <param name="basketCheckout">Basket checkout information.</param>
+        /// <returns>Accepted if successful, BadRequest if the basket is not found.</returns>
         [Route("[action]")]
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.Accepted)]

@@ -19,6 +19,11 @@ namespace Ordering.API.Controllers
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
+        /// <summary>
+        /// Get a list of orders by user name.
+        /// </summary>
+        /// <param name="userName">The user name for which to retrieve orders.</param>
+        /// <returns>A list of orders.</returns>
         [HttpGet("{userName}", Name = "GetOrder")]
         [ProducesResponseType(typeof(IEnumerable<OrdersVm>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<OrdersVm>>> GetOrdersByUserName(string userName)
@@ -28,6 +33,11 @@ namespace Ordering.API.Controllers
             return Ok(orders);
         }
 
+        /// <summary>
+        /// Create a new order.
+        /// </summary>
+        /// <param name="command">The command for checking out an order.</param>
+        /// <returns>The ID of the created order.</returns>
         [HttpPost(Name = "CheckoutOrder")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         public async Task<ActionResult<int>> CheckoutOrder([FromBody] CheckoutOrderCommand command)
@@ -36,6 +46,11 @@ namespace Ordering.API.Controllers
             return Ok(result);
         }
 
+        /// <summary>
+        /// Update an existing order.
+        /// </summary>
+        /// <param name="command">The command for updating an order.</param>
+        /// <returns>No content if successful, NotFound if the order is not found.</returns>
         [HttpPut(Name = "UpdateOrder")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -46,6 +61,11 @@ namespace Ordering.API.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Delete an order by its ID.
+        /// </summary>
+        /// <param name="id">The ID of the order to delete.</param>
+        /// <returns>No content if successful, NotFound if the order is not found.</returns>
         [HttpDelete("{id}", Name = "DeleteOrder")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]

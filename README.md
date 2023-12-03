@@ -35,9 +35,9 @@
     docker-compose -f docker-compose.yml -f docker-compose.override.yml up –d
     ```
 3. Запустите микросервисы, используя следующие URL-адреса:
-   - API catalog -> [http://host.docker.internal:8000/swagger/index.html](http://host.docker.internal:8000/swagger/index.html)
-   - API basket -> [http://host.docker.internal:8001/swagger/index.html](http://host.docker.internal:8001/swagger/index.html)
-   - API ordering -> [http://host.docker.internal:8003/swagger/index.html](http://host.docker.internal:8003/swagger/index.html)
-   - API gateway -> [http://host.docker.internal:8004/Catalog](http://host.docker.internal:8010/Catalog)
+   - API catalog -> [http://localhost:8000/swagger/index.html](http://localhost:8000/swagger/index.html)
+   - API basket -> [http://localhost:8001/swagger/index.html](http://localhost:8001/swagger/index.html)
+   - API ordering -> [http://localhost:8003/swagger/index.html](http://localhost:8003/swagger/index.html)
+   - API gateway -> [http://localhost:8004/Catalog](http://localhost:8010/Catalog)
    
-4. Панель управления Rabbit -> [http://host.docker.internal:15672](http://host.docker.internal:15672) — guest/guest
+4. Панель управления Rabbit -> [http://localhost:15672](http://localhost:15672) — guest/guest

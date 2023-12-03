@@ -37,7 +37,7 @@
 3. Запустите микросервисы, используя следующие URL-адреса:
    - API catalog -> [http://localhost:8000/swagger/index.html](http://localhost:8000/swagger/index.html)
    - API basket -> [http://localhost:8001/swagger/index.html](http://localhost:8001/swagger/index.html)
-   - API ordering -> [http://localhost:8003/swagger/index.html](http://localhost:8003/swagger/index.html)
-   - API gateway -> [http://localhost:8004/Catalog](http://localhost:8010/Catalog)
+   - API ordering -> [http://localhost:8002/swagger/index.html](http://localhost:8002/swagger/index.html)
+   - API gateway -> [http://localhost:8003/Catalog](http://localhost:8003/Catalog)
    
 4. Панель управления Rabbit -> [http://localhost:15672](http://localhost:15672) — guest/guest
